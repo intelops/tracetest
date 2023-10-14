@@ -20,7 +20,7 @@ var provisioningFile string
 
 var serveCmd = &cobra.Command{
 	Use:   "serve",
-	Short: "Start Tracetest server",
+	Short: "Start QT server",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		cfg.Watch(func(updated *config.AppConfig) {
 			appInstance.HotReload()

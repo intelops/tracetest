@@ -54,9 +54,9 @@ var (
 
 var testRunCmd = &cobra.Command{
 	Use:        "run",
-	Short:      "Run a test on your Tracetest server",
-	Long:       "Run a test on your Tracetest server",
-	Deprecated: "Please use `tracetest run test` command instead.",
+	Short:      "Run a test on your qt server",
+	Long:       "Run a test on your qt server",
+	Deprecated: "Please use `qt run test` command instead.",
 	PreRun:     setupCommand(),
 	Run: func(_ *cobra.Command, _ []string) {
 		// map old flags to new ones

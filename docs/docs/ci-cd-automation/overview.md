@@ -27,7 +27,7 @@ Many integrations with CI/CD tools can be accomplished by running the [Tracetest
 
 Use the command below, substituting the following placeholders:
 
-- `your-tracetest-server-url` - the URL to the running Tracetest server you wish to execute the test on. Example: `http://localhost:11633/`
+- `your-tracetest-server-url` - the URL to the running QT server you wish to execute the test on. Example: `http://localhost:11633/`
 - `file-path` - The path to the saved Tracetest test. Example: `./mytest.yaml`
 
 ```bash wordWrap=true

@@ -114,7 +114,7 @@ func loadConfig(cmd *cobra.Command, args []string) {
 func validateConfig(cmd *cobra.Command, args []string) {
 	if cliConfig.IsEmpty() {
 		cliLogger.Warn("You haven't configured your CLI, some commands might fail!")
-		cliLogger.Warn("Run 'tracetest configure' to configure your CLI")
+		cliLogger.Warn("Run 'qt configure' to configure your CLI")
 	}
 }
 
@@ -167,7 +167,7 @@ func validateVersionMismatch() {
 ✖️ Error: Version Mismatch
 The CLI version and the server version are not compatible. To fix this, you'll need to make sure that both your CLI and server are using compatible versions.
 We recommend upgrading both of them to the latest available version. Check out our documentation https://docs.tracetest.io/configuration/upgrade for simple instructions on how to upgrade.
-Thank you for using Tracetest! We apologize for any inconvenience caused.
+Thank you for using QT! We apologize for any inconvenience caused.
 `)
 		ExitCLI(1)
 	}

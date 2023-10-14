@@ -19,7 +19,7 @@ func GetConfigAsEnvVars() *EnvironmentVars {
 
 	tracetestCommand := os.Getenv("TRACETEST_CLI")
 	if tracetestCommand == "" {
-		tracetestCommand = "tracetest"
+		tracetestCommand = "qt"
 	}
 
 	testEnvironment := os.Getenv("TEST_ENVIRONMENT")

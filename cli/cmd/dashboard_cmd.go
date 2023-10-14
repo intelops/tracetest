@@ -11,8 +11,8 @@ import (
 var dashboardCmd = &cobra.Command{
 	GroupID: cmdGroupMisc.ID,
 	Use:     "dashboard",
-	Short:   "Opens the Tracetest Dashboard URL",
-	Long:    "Opens the Tracetest Dashboard URL",
+	Short:   "Opens the qt Dashboard URL",
+	Long:    "Opens the qt Dashboard URL",
 	PreRun:  setupCommand(),
 	Run: WithResultHandler(func(_ *cobra.Command, _ []string) (string, error) {
 		if cliConfig.IsEmpty() {

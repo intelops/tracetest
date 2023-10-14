@@ -15,8 +15,8 @@ var installerParams = &installerParameters{
 
 var serverInstallCmd = &cobra.Command{
 	Use:    "install",
-	Short:  "Install a new Tracetest server",
-	Long:   "Install a new Tracetest server",
+	Short:  "Install a new qt server",
+	Long:   "Install a new qt server",
 	PreRun: setupCommand(SkipConfigValidation(), SkipVersionMismatchCheck()),
 	Run: func(_ *cobra.Command, _ []string) {
 		installer.Force = installerParams.Force

@@ -17,7 +17,7 @@ func init() {
 		GroupID: cmdGroupResources.ID,
 		Use:     "list " + resourceList(),
 		Short:   "List resources",
-		Long:    "List resources from your Tracetest server",
+		Long:    "List resources from your qt server",
 		PreRun:  setupCommand(),
 		Run: WithResourceMiddleware(func(_ *cobra.Command, args []string) (string, error) {
 			resourceType := resourceParams.ResourceName
