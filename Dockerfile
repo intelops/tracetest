@@ -16,14 +16,14 @@ RUN cd server && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -
 RUN cd cli && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -o /app/tracetest
 
 # Stage 2: Final Image
-FROM gcr.io/distroless/static:nonroot
+FROM alpine
 
-WORKDIR /
+WORKDIR /app
 
 # Copy the built binaries from the builder stage
-COPY --from=builder /app/tracetest-server .
-COPY --from=builder /app/tracetest .
+COPY --from=builder /app/server/tracetest-server /app/tracetest-server 
+COPY --from=builder /app/tracetest /app/tracetest
 
 EXPOSE 11633/tcp
 
-ENTRYPOINT ["/tracetest-server", "serve"]
+ENTRYPOINT ["/app/tracetest-server", "serve"]
