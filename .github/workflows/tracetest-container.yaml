@@ -42,6 +42,9 @@ jobs:
             type=raw,value={{sha}},enable=${{ github.ref_type != 'tag' }}
           flavor: |
             latest=true
+            
+      - name: Build server
+        run: make dist/tracetest-server
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
