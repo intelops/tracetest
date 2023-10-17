@@ -34,6 +34,8 @@ jobs:
       - 
         name: Build server
         run: make dist/tracetest-server
+        env:
+          GO111MODULE: on
 
       -
         name: Login to ghcr registry
