@@ -31,7 +31,7 @@ func TenantMiddleware(next http.Handler) http.Handler {
 			w.Write([]byte(err.Error()))
 			return
 		}
-
+		log.Println("bypass ------------- ", r.URL.Path)
 		ctx = context.WithValue(ctx, TenantIDKey, tenantID)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
