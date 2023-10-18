@@ -22,10 +22,10 @@ func TenantMiddleware(next http.Handler) http.Handler {
 		ctx := r.Context()
 		tenantID := getTenantIDFromRequest(r)
 		log.Println("TenantID", tenantID)
-		log.Println("Context", ctx)
+		log.Println("Path ", r.URL.Path)
 		// if tenant id exists and is invalid we return a 400 error
 		if tenantID != "" && !isValidUUID(tenantID) {
-			log.Printf("invalid tenant ID....... %s", tenantID)
+			log.Println("invalid tenant ID....... ", tenantID)
 			err := fmt.Errorf("invalid tenant id: %s", tenantID)
 			w.WriteHeader(http.StatusBadRequest)
 			w.Write([]byte(err.Error()))
