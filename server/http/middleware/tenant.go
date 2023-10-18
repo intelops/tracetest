@@ -3,7 +3,6 @@ package middleware
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/google/uuid"
@@ -21,8 +20,7 @@ func TenantMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ctx := r.Context()
 		tenantID := getTenantIDFromRequest(r)
-		log.Println("TenantID", tenantID)
-		log.Println("Path ", r.URL.Path)
+
 		// if tenant id exists and is invalid we return a 400 error
 		if r.URL.Path == "/" {
 			w.WriteHeader(http.StatusOK)
@@ -30,13 +28,12 @@ func TenantMiddleware(next http.Handler) http.Handler {
 			return
 		}
 		if tenantID != "" && !isValidUUID(tenantID) {
-			log.Println("invalid tenant ID....... ", tenantID)
 			err := fmt.Errorf("invalid tenant id: %s", tenantID)
 			w.WriteHeader(http.StatusBadRequest)
 			w.Write([]byte(err.Error()))
 			return
 		}
-		log.Println("bypass ------------- ", r.URL.Path)
+
 		ctx = context.WithValue(ctx, TenantIDKey, tenantID)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})

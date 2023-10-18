@@ -173,7 +173,6 @@ func (app *App) Start(opts ...appOption) error {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println("Tracer", tracer)
 	app.registerStopFn(func() {
 		fmt.Println("stopping tracer")
 		tracing.ShutdownTracer(ctx)
