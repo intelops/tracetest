@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/jackc/pgx/v5/pgxpool"
@@ -94,6 +95,7 @@ func (qd *PostgresQueueDriver) worker(conn *pgxpool.Conn) {
 		qd.log("error waiting for notification: %s", err.Error())
 		return
 	}
+	qd.log("Notification is",notification)
 
 	job := pgJob{}
 	err = json.Unmarshal([]byte(notification.Payload), &job)
@@ -101,7 +103,6 @@ func (qd *PostgresQueueDriver) worker(conn *pgxpool.Conn) {
 		qd.log("error unmarshalling pgJob: %s", err.Error())
 		return
 	}
-
 	qd.log("received job for channel: %s, runID: %d", job.Channel, job.Job.Run.ID)
 
 	channel, err := qd.getChannel(job.Channel)
@@ -109,7 +110,7 @@ func (qd *PostgresQueueDriver) worker(conn *pgxpool.Conn) {
 		qd.log("error getting channel: %s", err.Error())
 		return
 	}
-
+    qd.log("Channel is",channel)
 	// spin off so we can keep listening for jobs
 	go channel.q.Listen(job.Job)
 	qd.log("spun off job for channel: %s, runID: %d", job.Channel, job.Job.Run.ID)
