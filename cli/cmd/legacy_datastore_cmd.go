@@ -27,8 +27,8 @@ var dataStoreCmd = &cobra.Command{
 
 var dataStoreApplyCmd = &cobra.Command{
 	Use:        "apply",
-	Short:      "Apply (create/update) data store configuration to your Tracetest server",
-	Long:       "Apply (create/update) data store configuration to your Tracetest server",
+	Short:      "Apply (create/update) data store configuration to your qt server",
+	Long:       "Apply (create/update) data store configuration to your qt server",
 	Deprecated: "Please use `tracetest apply datastore --file [path]` command instead.",
 	PreRun:     setupCommand(),
 	Run: func(cmd *cobra.Command, args []string) {
@@ -56,8 +56,8 @@ var dataStoreExportCmd = &cobra.Command{
 
 var dataStoreListCmd = &cobra.Command{
 	Use:        "list",
-	Short:      "List data store configurations to your tracetest server",
-	Long:       "List data store configurations to your tracetest server",
+	Short:      "List data store configurations to your qt server",
+	Long:       "List data store configurations to your qt server",
 	Deprecated: "Please use `tracetest get datastore --id current` command instead.",
 	PreRun:     setupCommand(),
 	Run: func(cmd *cobra.Command, args []string) {

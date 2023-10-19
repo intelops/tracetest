@@ -242,8 +242,8 @@ spec:
       image: kubeshop/tracetest:v0.11.9 # The official Tracetest image comes with the Tracetest CLI installed
       script: |
         # Configure and Run Tracetest CLI
-        tracetest configure -g --endpoint http://tracetest.tracetest.svc.cluster.local:11633/
-        tracetest run test -f /workspace/test-api.yaml
+        qt configure -g --endpoint http://tracetest.tracetest.svc.cluster.local:11633/
+        qt run test -f /workspace/test-api.yaml
       volumeMounts:
       - name: custom
         mountPath: /workspace

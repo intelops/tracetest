@@ -19,10 +19,10 @@ func Start() {
 	ui.Banner()
 
 	ui.Println(`
-Hi! Welcome to the TraceTest server installer. I'll help you set up your TraceTest server by asking you a few questions
+Hi! Welcome to the QT server installer. I'll help you set up your QT server by asking you a few questions
 and configuring your system with all the requirements, so you can start TraceTesting right away!
 
-To get more info about TraceTest, you can check our docs at https://kubeshop.github.io/tracetest/
+To get more info about QT, you can check our docs at https://kubeshop.github.io/tracetest/
 
 If you have any issues, please let us know by creating an issue (https://github.com/kubeshop/tracetest/issues/new/choose)
 or reach us on Discord https://discord.gg/6zupCZFQbe

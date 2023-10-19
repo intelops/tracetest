@@ -13,13 +13,13 @@ Configure your CLI to connect to your Tracetest server.
 **How to Use**:
 
 ```sh
-tracetest configure
+qt configure
 ```
 
 If you want to set values without having to answer questions from a prompt, you can provide the flag `--endpoint` to define the server endpoint.
 
 ```sh
-tracetest configure --endpoint http://my-tracetest-server:11633
+qt configure --endpoint http://my-tracetest-server:11633
 ```
 
 ### Test List

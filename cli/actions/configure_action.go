@@ -39,7 +39,7 @@ func (a configureAction) Run(ctx context.Context, args ConfigureConfig) error {
 	if args.SetValues.Endpoint != "" {
 		serverURL = args.SetValues.Endpoint
 	} else {
-		serverURL = ui.TextInput("Enter your Tracetest server URL", existingConfig.URL())
+		serverURL = ui.TextInput("Enter your qt server URL", existingConfig.URL())
 	}
 
 	if err := config.ValidateServerURL(serverURL); err != nil {

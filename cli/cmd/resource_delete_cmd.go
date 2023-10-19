@@ -19,7 +19,7 @@ func init() {
 		GroupID: cmdGroupResources.ID,
 		Use:     "delete " + resourceList(),
 		Short:   "Delete resources",
-		Long:    "Delete resources from your Tracetest server",
+		Long:    "Delete resources from your qt server",
 		PreRun:  setupCommand(),
 		Run: WithResourceMiddleware(func(_ *cobra.Command, args []string) (string, error) {
 			resourceType := resourceParams.ResourceName
