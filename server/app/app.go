@@ -281,7 +281,7 @@ func (app *App) Start(opts ...appOption) error {
 
 	// use the tenant middleware on complete router
 	router.Use(middleware.TenantMiddleware)
-
+	//
 	apiRouter := router.
 		PathPrefix(app.cfg.ServerPathPrefix()).
 		PathPrefix("/api").
@@ -303,7 +303,7 @@ func (app *App) Start(opts ...appOption) error {
 	if isNewInstall {
 		provision(provisioner, app.provisioningFile)
 	}
-
+	//http server started
 	httpServer := &http.Server{
 		Addr:    fmt.Sprintf(":%d", app.cfg.ServerPort()),
 		Handler: handlers.CompressHandler(router),

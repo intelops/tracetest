@@ -26,6 +26,18 @@ jobs:
         name: Set up Docker Buildx
 
       -
+        name: Set up Go environment
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21.1'
+
+      - 
+        name: Build server
+        run: make dist/tracetest-server
+        env:
+          GO111MODULE: on
+
+      -
         name: Login to ghcr registry
         uses: docker/login-action@v2
         with:

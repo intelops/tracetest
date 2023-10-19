@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"strings"
 )
@@ -99,7 +100,8 @@ func (c *AppConfig) PostgresConnString() string {
 func (c *AppConfig) ServerPathPrefix() string {
 	c.mu.Lock()
 	defer c.mu.Unlock()
-
+	pathprefix := c.vp.GetString("server.pathPrefix")
+	log.Println(" Server Path Prefix", pathprefix)
 	return c.vp.GetString("server.pathPrefix")
 }
 
