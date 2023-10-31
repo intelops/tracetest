@@ -50,16 +50,11 @@ helm install qt qt/tracetest
 ```
 
 ## Open QT
-**Build the binary for qt cli**.
-
-```bash
-go build -o json qt .
-```
 
 ## How to configure the server url
 
 ```bash
-./qt configure
+qt configure
 ```
 Enter the server url.
 
@@ -99,6 +94,6 @@ assertions:
 Save a test definition file above as `users.yaml`. Use the CLI to run a test.
 
 ```bash
-./qt run test --file /path/to/users.yaml
+qt run test --file /path/to/users.yaml
 ```
 
