@@ -1,8 +1,7 @@
 name: Build and publish tracetest CLI
-
 on:
-    tags:
-      - 'v*.*.*' # Only build on tags that match the 'vX.Y.Z' pattern
+  tags:
+    - 'v*.*.*' # Only build on tags that match the 'vX.Y.Z' pattern
 
 jobs:
   build:
@@ -41,10 +40,6 @@ jobs:
           tag_name: ${{ github.ref }}
           name: ${{ steps.release.outputs.name }} - Linux
           draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
