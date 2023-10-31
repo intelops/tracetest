@@ -1,9 +1,6 @@
 name: Build and publish tracetest CLI
 
 on:
-  push:
-    branches:
-      - main
     tags:
       - 'v*.*.*' # Only build on tags that match the 'vX.Y.Z' pattern
 
@@ -34,10 +31,13 @@ jobs:
         env:
           GITHUB_REF: ${{ github.ref }}
       
-      - name: Create release for Linux
+      - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          files: cli/tracetest-linux
+          files: |
+            cli/tracetest-linux
+            cli/tracetest-macos
+            cli/tracetest-windows.exe
           tag_name: ${{ github.ref }}
           name: ${{ steps.release.outputs.name }} - Linux
           draft: false
@@ -45,24 +45,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create release for macOS
-        uses: softprops/action-gh-release@v1
-        with:
-          files: cli/tracetest-macos
-          tag_name: ${{ github.ref }}
-          name: ${{ steps.release.outputs.name }} - macOS
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create release for Windows
-        uses: softprops/action-gh-release@v1
-        with:
-          files: cli/tracetest-windows.exe
-          tag_name: ${{ github.ref }}
-          name: ${{ steps.release.outputs.name }} - Windows
-          draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
