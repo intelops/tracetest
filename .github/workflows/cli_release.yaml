@@ -35,9 +35,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            cli/tracetest-linux
-            cli/tracetest-macos
-            cli/tracetest-windows.exe
+            tracetest-linux
+            tracetest-macos
+            tracetest-windows.exe
           tag_name: ${{ github.ref }}
           name: ${{ steps.release.outputs.name }} - Linux
           draft: false
