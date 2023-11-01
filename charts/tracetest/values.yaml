@@ -237,6 +237,15 @@ otelCollector:
       # -- Protocol to use for OTLP HTTP
       protocol: TCP
 
+  ingressRoute:
+    enabled: false
+    annotations: {}
+    host: "otelcollector.domain.com"
+    service:
+      port: 4317
+    tls: []
+    #  - secretName: chart-example-tls
+    
   ingress:
     # -- Enable ingress for OtelCollector
     enabled: false
